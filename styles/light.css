@@ -4,9 +4,56 @@
   переключая тему
 */
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: var(--white-pink);
+    --background-accent-color: var(--pink);
+    --basic-text-color: var(--dark-grey);
+    --button-text-color: var(--dark-grey);
+    --main-title-color: var(--pale-pink);
+    --decorated-color: var(--pink);
+    --section-title-color: var(--dark-grey);
+    --item-title-color: var(--dark-grey);
+  }
+  
+  .page {
+    background-image: url(../images/cover-image-light.png);
+  }
+
+  .header::before {
+    content: "";
+    background: none;
+  }
+
+  .header,
+  .footer {
+    --decorated-color: var(--dark-grey);
+  }
+}
+
 .page.theme_light {
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+  --background-color: var(--white-pink);
+  --background-accent-color: var(--pink);
+  --basic-text-color: var(--dark-grey);
+  --button-text-color: var(--dark-grey);
+  --main-title-color: var(--pale-pink);
+  --decorated-color: var(--pink);
+  --section-title-color: var(--dark-grey);
+  --item-title-color: var(--dark-grey);
+
+  background-image: url(../images/cover-image-light.png);
+}
+
+.page.theme_light .header::before {
+  content: "";
+  background: none;
+}
+
+.page.theme_light .header,
+.page.theme_light .footer {
+  --decorated-color: var(--dark-grey);
 }

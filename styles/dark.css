@@ -9,4 +9,37 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+
+  --background-color: var(--dark-blue-green);
+  --background-accent-color: var(--bright-pink);
+  --basic-text-color: var(--light-pink);
+  --button-text-color: var(--bright-pink);
+  --main-title-color: var(--lilac);
+  --decorated-color: var(--bright-pink);
+  --title-text-shadow: var(--bright-pink);
+  --section-title-color: var(--bright-pink);
+  --item-title-color: var(--dark-blue-green);
+
+  background-image: url(../images/cover-image-dark.png);
+}
+
+.page.theme_dark .header::before {
+  content: "REC";
+  position: absolute;
+  top: var(--padding);
+  right: var(--padding);
+  color: var(--background-accent-color, #ff0070);
+  text-align: left;
+  background: radial-gradient(
+      circle 9px,
+      var(--background-accent-color, #ff0070) 50%,
+      transparent
+    )
+    no-repeat calc(100% + 16px) 0 / 100% 100%;
+  inline-size: 60px;
+  block-size: 25px;
+}
+
+.page.theme_dark .header {
+  --decorated-color: var(--bright-pink);
 }

@@ -1,5 +1,320 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  color: var(--basic-text-color, #f1b2ce);
+  font-family: "IBM Plex Mono", Courier, monospace;
+  background-color: var(--background-color, #000028);
+  background-image: url(../images/cover-image-dark.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+  min-inline-size: 375px;
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto 1fr;
+  align-items: center;
+  margin-block-end: var(--large-margin);
+  padding: var(--padding, 10px);
+  min-block-size: 100vh;
+}
+
+/* рисуем декоративные уголки*/
+
+.decorated-zone {
+  background: 
+    linear-gradient(
+      to right,
+      transparent calc(100% - 25px),
+      var(--decorated-color, #ff0070) 25px
+    )
+      no-repeat calc(100% - var(--padding)) var(--padding) / 100% 1px,
+    linear-gradient(
+      to right,
+      var(--decorated-color, #ff0070) 0 25px,
+      transparent 25px 100%
+    )
+      no-repeat var(--padding) calc(100% - var(--padding)) / 100% 1px,
+    linear-gradient(
+      to bottom,
+      var(--decorated-color, #ff0070) 0 25px,
+      transparent 25px 100%
+    )
+      no-repeat calc(100% - var(--padding)) var(--padding) / 1px 100%,
+    linear-gradient(
+      to bottom,
+      transparent 0 calc(100% - 25px),
+      var(--decorated-color, #ff0070) calc(100% - 25px) 100%
+    )
+      no-repeat var(--padding) calc(100% - var(--padding)) / 1px 100%;
+}
+
+/* рисуем элемент REC и точку */
+
+.header::before {
+  content: "REC";
+  position: absolute;
+  top: var(--padding);
+  right: var(--padding);
+  color: var(--background-accent-color, #ff0070);
+  text-align: left;
+  background: 
+    radial-gradient(
+      circle 9px,
+      var(--background-accent-color, #ff0070) 50%,
+      transparent
+    )
+    no-repeat calc(100% + 16px) 0 / 100% 100%;
+  inline-size: 60px;
+  block-size: 25px;
+}
+
+.header__theme-menu {
+  grid-row: 1 / 2;
+  justify-self: end;
+/* меняем поведение для десктопа */
+  @media (width >= 1024px) {
+    justify-self: center;
+    align-self: start;
+  }
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* меняем поведение для десктопа */
+  @media (width >= 1024px) {
+    flex-direction: row;
+  }
+}
+
+.header__theme-menu-button {
+  border: 1px solid transparent;
+  padding: 3px 13px;
+  vertical-align: middle;
+  color: var(--button-text-color, #ff0070);
+  line-height: 1;
+  text-align: center;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+:is(.text-link, .header__theme-menu-button):focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--button-text-color);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid color(from var(--button-text-color) srgb r g b / 0.4);
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--button-text-color);
+  pointer-events: none;
+}
+
+.main__title {
+  color: var(--main-title-color, #db00ff);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.82;
+  text-shadow: 4px 4px 0 var(--title-text-shadow, #ff0070);
+/* меняем поведение для планшетов и десктопа */
+  @media (width >= 768px) {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+.header .main__title {
+  grid-row: 2 / 3;
+ /* меняем поведение для планшетов и десктопа */
+  @media (width >= 768px) {
+    margin-inline-start: -20px;
+  }
+}
+
+.header__lead {
+  grid-row: 3 / 4;
+    /* меняем поведение для планшетов и десктопа */
+  @media (width >= 768px) {
+    justify-self: end;
+    width: 50%;
+  }
+}
+
+.color-background {
+  color: var(--dark-blue-green, #000028);
+  font-weight: 700;
+  line-height: 1.3;
+  background-color: var(--background-accent-color, #ff0070);
+}
+
+.section {
+  margin-block-end: var(--large-margin);
+  padding: var(--padding);
+    /* меняем поведение для планшетов и десктопа */
+  @media (width >= 768px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(5, fit-content);
+    column-gap: 20px;
+  }
+}
+
+.section__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section__title {
+  margin-block-end: var(--middle-margin);
+  color: var(--section-title-color, #ff0070);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.section__item-title {
+  margin-block-end: var(--small-margin);
+  color: var(--dark-blue-green, #000028);
+}
+
+.basic-text {
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.basic-text + .basic-text {
+  margin-block-start: 10px;
+}
+
+.how-make-better .section__item-title {
+  font-weight: 400;
+}
+
+.how-make-better .section__title + .section__item-title {
+  margin-block-end: var(--middle-margin);
+  font-weight: 700;
+}
+
+.text-link {
+  border: 1px solid transparent;
+  text-shadow: 2px 2px 0 var(--decorated-color);
+}
+
+.text-link:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.text-link:focus-visible {
+  border: 1px solid currentColor;
+}
+
+  /* меняем поведение секций для планшетов и десктопа */
+
+@media (width >= 768px) {
+  .why-so-difficult .section__list,
+  .how-make-better .section__list,
+  .how-make-better .section__item-title {
+    grid-column: 2 / 3;
+  }
+
+  .why-so-difficult .section__title,
+  .how-make-better .section__title {
+    grid-row: 1 / 3;
+  }
+
+  .what-prevents .section__title {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .what-prevents .section__list {
+    grid-column: 1 / 3;
+    grid-row: 2 / 6;
+  }
+}
+
+  /* меняем поведение для десктопа */
+
+@media (width >= 1024px) {
+  .what-prevents .section__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+    /* меняем поведение для планшетов и десктопа */
+  @media (width >= 768px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, fit-content);
+  }
+}
+
+.gallery .section__title {
+  --section-title-color: var(--dark-blue-green);
+  --middle-margin: 0;
+}
+
+.gallery__item {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+  /* меняем поведение для планшетов и десктопа */
+
+@media (width >= 768px) {
+  .gallery .section__title {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
+
+  .gallery__item {
+    object-fit: cover;
+  }
+
+  .gallery__item:nth-of-type(1) {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .gallery__item:nth-of-type(2) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
+  }
+
+  .gallery__item:nth-of-type(3) {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+  }
+
+  .gallery__item:nth-of-type(4) {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+  
+  .gallery__item:nth-of-type(5) {
+    grid-column: 2 / 4;
+    grid-row: 4 / 5;
+  }
+}
+
+.footer {
+  display: grid;
+  place-items: center;
+  min-block-size: 100vh;
 }

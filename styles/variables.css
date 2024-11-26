@@ -2,3 +2,45 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+:root {
+
+  /* общие цвета */
+
+  --bright-pink: #ff0070;
+  --pink: #ff8dcb;
+  --light-pink: #f1b2ce;
+  --pale-pink: #ffc2e6;
+  --white-pink: #fff1f7;
+  --lilac: #db00ff;
+  --dark-grey: #353430;
+  --dark-blue-green: #000028;
+
+  /* цвета начальной темной темы */
+
+  --background-color: var(--dark-blue-green);
+  --background-accent-color: var(--bright-pink);
+  --basic-text-color: var(--light-pink);
+  --button-text-color: var(--bright-pink);
+  --main-title-color: var(--lilac);
+  --decorated-color: var(--bright-pink);
+  --title-text-shadow: var(--bright-pink);
+  --section-title-color: var(--bright-pink);
+  --item-title-color: var(--dark-blue-green);
+
+  /* отступы */ 
+
+  --gap: 10px;
+  --large-margin: 30px;
+  --middle-margin: 20px;
+  --small-margin: 10px;
+  --padding: 10px;
+}
+
+@media (width >= 768px){
+  :root {
+    --large-margin: 40px;
+    --padding: 20px;
+    --gap: 20px;
+  }
+}
+
