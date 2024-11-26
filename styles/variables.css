@@ -27,7 +27,7 @@
   --section-title-color: var(--bright-pink);
   --item-title-color: var(--dark-blue-green);
 
-  /* отступы */ 
+/* отступы */ 
 
   --gap: 10px;
   --large-margin: 30px;
@@ -36,7 +36,7 @@
   --padding: 10px;
 }
 
-@media (width >= 768px){
+@media (width >= 768px) {
   :root {
     --large-margin: 40px;
     --padding: 20px;
