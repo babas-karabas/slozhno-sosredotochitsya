@@ -24,20 +24,14 @@
 }
 
 .page.theme_dark .header::before {
-  content: "REC";
-  position: absolute;
-  top: var(--padding);
-  right: var(--padding);
-  color: var(--background-accent-color, #ff0070);
-  text-align: left;
+  content: "REC" / ""; /* скрываем от скринридеров */
   background: radial-gradient(
       circle 9px,
       var(--background-accent-color, #ff0070) 50%,
       transparent
     )
     no-repeat calc(100% + 16px) 0 / 100% 100%;
-  inline-size: 60px;
-  block-size: 25px;
+  
 }
 
 .page.theme_dark .header {
