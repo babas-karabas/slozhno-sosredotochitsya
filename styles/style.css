@@ -204,7 +204,8 @@
 }
 
 /* добавляем отступ между абзацами на случай, если их количество будет больше двух */
-.basic-text + .basic-text { 
+
+.basic-text + .basic-text {
   margin-block-start: 10px;
 }
 
