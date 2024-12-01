@@ -10,8 +10,6 @@
   background-attachment: fixed;
   scroll-behavior: smooth;
   min-inline-size: 375px;
-  block-size: 100vh;
-  min-block-size: 668px;
 }
 
 .header {
